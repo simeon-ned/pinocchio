@@ -3,6 +3,7 @@
 // Copyright (c) 2016 Wandercraft, 86 rue de Paris 91400 Orsay, France.
 //
 
+
 #ifndef __pinocchio_spatial_inertia_hpp__
 #define __pinocchio_spatial_inertia_hpp__
 
@@ -14,13 +15,6 @@
 
 namespace pinocchio
 {
-  // Forward declare the PseudoInertia and LogCholeskyParameters structs
-  template<typename Scalar, int Options>
-  struct PseudoInertia;
-
-  template<typename Scalar, int Options>
-  struct LogCholeskyParameters;
-
   template<class Derived>
   struct InertiaBase : NumericalBase<Derived>
   {
@@ -235,8 +229,16 @@ namespace pinocchio
       return os;
     }
 
-  }; // class InertiaBase
+  }; 
+  
+  // Forward declare the PseudoInertia and LogCholeskyParameters structs
+  template<typename Scalar, int Options>
+  struct PseudoInertia;
 
+  template<typename Scalar, int Options>
+  struct LogCholeskyParameters;
+
+  // class InertiaBase
   template<typename T, int U>
   struct traits<InertiaTpl<T, U>>
   {
@@ -258,8 +260,8 @@ namespace pinocchio
     typedef ForceTpl<T, U> Force;
     typedef MotionTpl<T, U> Motion;
     typedef Symmetric3Tpl<T, U> Symmetric3;
-    typedef PseudoInertia<T, U> PseudoInertia;
-    typedef LogCholeskyParameters<T, U> LogCholeskyParameters;
+    // typedef PseudoInertia<T, U> PseudoInertia;
+    // typedef LogCholeskyParameters<T, U> LogCholeskyParameters;
     enum
     {
       LINEAR = 0,

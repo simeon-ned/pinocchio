@@ -270,10 +270,10 @@ namespace pinocchio
           symmetric_inertia(2, 2);
       }
 
-      // static VectorXs toDynamicParameters_proxy(const Inertia & self)
-      // {
-      //   return self.toDynamicParameters();
-      // }
+      static VectorXs toDynamicParameters_proxy(const Inertia & self)
+      {
+        return self.toDynamicParameters();
+      }
 
       // static Matrix4 toPseudoInertia_proxy(const Inertia & self)
       // {
