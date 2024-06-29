@@ -9,6 +9,7 @@
   <a href="https://anaconda.org/conda-forge/pinocchio"><img src="https://img.shields.io/conda/dn/conda-forge/pinocchio.svg" alt="Conda Downloads"/></a>
   <a href="https://anaconda.org/conda-forge/pinocchio"><img src="https://img.shields.io/conda/vn/conda-forge/pinocchio.svg" alt="Conda Version"/></a>
   <a href="https://badge.fury.io/py/pin"><img src="https://badge.fury.io/py/pin.svg" alt="PyPI version" height="20"></a>
+  <a href="https://badge.fury.io/py/pin"><img src="https://results.pre-commit.ci/badge/github/stack-of-tasks/pinocchio/master.svg" alt="pre-commit.ci status" height="20"></a>
   <br>
   <!--<a href="https://gitlab.laas.fr/stack-of-tasks/pinocchio"><img src="https://gitlab.laas.fr/stack-of-tasks/pinocchio/badges/master/pipeline.svg" alt="Pipeline Status"></a>-->
 
@@ -258,7 +259,7 @@ The following people have been involved in the development of **Pinocchio** and 
 -   [Shubham Singh](https://github.com/shubhamsingh91) (UT Austin): second-order inverse dynamics derivatives
 -   [Stéphane Caron](https://scaron.info) (Inria): core developper
 -   [Joris Vaillant](https://github.com/jorisv) (Inria): core developer and manager of the project
--   [Sebastian Castro](https://roboticseabass.com) (PickNik Robotics): MeshCat viewer features extension
+-   [Sebastian Castro](https://roboticseabass.com) (The AI Institute): MeshCat viewer features extension
 -   [Lev Kozlov](https://github.com/lvjonok): Kinetic and potential energy regressors
 -   [Simeon Nedelchev](https://github.com/simeon-ned): Pseudo inertia and Log-cholesky parametrization
 
@@ -273,6 +274,7 @@ If you have participated in the development of **Pinocchio**, please add your na
 -   [ocs2](https://github.com/leggedrobotics/ocs2) A toolbox for Optimal Control for Switched Systems (OCS2)
 -   [TriFingerSimulation](https://github.com/open-dynamic-robot-initiative/trifinger_simulation) TriFinger Robot Simulation (a Robot to perform RL on manipulation).
 -   [Casadi_Kin_Dyn](https://github.com/ADVRHumanoids/casadi_kin_dyn) IIT Package for generation of symbolic (SX) expressions of robot kinematics and dynamics.
+-   [PyRoboPlan](https://github.com/sea-bass/pyroboplan) An educational Python library for manipulator motion planning, using the Pinocchio Python bindings.
 
 ## Acknowledgments
 

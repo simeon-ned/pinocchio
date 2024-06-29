@@ -286,6 +286,7 @@ namespace pinocchio
     typedef PseudoInertiaTpl<Scalar, Options> PseudoInertia;
     typedef LogCholeskyParametersTpl<Scalar, Options> LogCholeskyParameters;
 
+
     // Constructors
     InertiaTpl()
     {
@@ -300,7 +301,7 @@ namespace pinocchio
 
     explicit InertiaTpl(const Matrix6 & I6)
     {
-      assert(check_expression_if_real<Scalar>(isZero(I6 - I6.transpose())));
+      assert(check_expression_if_real<Scalar>(pinocchio::isZero(I6 - I6.transpose())));
       mass() = I6(LINEAR, LINEAR);
       const typename Matrix6::template ConstFixedBlockXpr<3, 3>::Type mc_cross =
         I6.template block<3, 3>(ANGULAR, LINEAR);
@@ -580,6 +581,7 @@ namespace pinocchio
     }
 
     /**
+
      * @brief Create an InertiaTpl object from a PseudoInertia object.
      *
      * @param pseudo_inertia A PseudoInertia object.

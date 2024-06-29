@@ -42,7 +42,6 @@ namespace pinocchio
       typedef typename Inertia::Matrix4 Matrix4;
       typedef typename Inertia::Matrix10 Matrix10;
       typedef typename Inertia::Vector10 Vector10;
-      
       typedef Eigen::Matrix<Scalar, Eigen::Dynamic, 1, Options> VectorXs;
       typedef Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic, Options> MatrixXs;
       typedef MotionTpl<Scalar, Options> Motion;
@@ -127,6 +126,17 @@ namespace pinocchio
             (Matrix6(Inertia::*)(const MotionDense<Motion> &) const)
               & Inertia::template variation<Motion>,
             bp::args("self", "v"), "Returns the time derivative of the inertia.")
+          .def(
+            "LogcholToDynamicParameters", &InertiaPythonVisitor::LogcholToDynamicParameters_proxy,
+            bp::args("log_cholesky"),
+            "Converts logarithmic Cholesky parameters directly to theta parameters.")
+          .staticmethod("LogcholToDynamicParameters")
+          .def(
+            "calculateLogCholeskyJacobian",
+            &InertiaPythonVisitor::calculateLogCholeskyJacobian_proxy, bp::args("log_cholesky"),
+            "Calculates the Jacobian of the dynamic parameters with respect to the log-Cholesky "
+            "parameters.")
+          .staticmethod("calculateLogCholeskyJacobian")
 
 
 #ifndef PINOCCHIO_PYTHON_SKIP_COMPARISON_OPERATIONS
@@ -238,7 +248,6 @@ namespace pinocchio
       {
         return self.toDynamicParameters();
       }
-
 
       static Inertia *
       makeFromMCI(const Scalar & mass, const Vector3 & lever, const Matrix3 & inertia)
