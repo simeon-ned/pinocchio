@@ -1079,11 +1079,10 @@ namespace pinocchio
 
     void disp_impl(std::ostream & os) const
     {
-      os << "Pseudo Inertia Matrix: \n"
-         << matrix << "\n"
-         << "m = " << mass << "\n"
-         << "h = " << h.transpose() << "\n"
-         << "sigma = \n"
+      os << "  matrix = \n" <<  matrix << "\n"
+         << "  m = " << mass << "\n"
+         << "  h = " << h.transpose() << "\n"
+         << "  sigma = \n"
          << Sigma << "";
     }
 
@@ -1245,17 +1244,16 @@ namespace pinocchio
 
     void disp_impl(std::ostream & os) const
     {
-      os << "Log Cholesky Parameters: \n"
-         << "alpha: " << alpha << "\n"
-         << "d1: " << d1 << "\n"
-         << "d2: " << d2 << "\n"
-         << "d3: " << d3 << "\n"
-         << "s12: " << s12 << "\n"
-         << "s23: " << s23 << "\n"
-         << "s13: " << s13 << "\n"
-         << "t1: " << t1 << "\n"
-         << "t2: " << t2 << "\n"
-         << "t3: " << t3 << "\n";
+      os << "  alpha: " << alpha << "\n"
+         << "  d1: " << d1 << "\n"
+         << "  d2: " << d2 << "\n"
+         << "  d3: " << d3 << "\n"
+         << "  s12: " << s12 << "\n"
+         << "  s23: " << s23 << "\n"
+         << "  s13: " << s13 << "\n"
+         << "  t1: " << t1 << "\n"
+         << "  t2: " << t2 << "\n"
+         << "  t3: " << t3 << "";
     }
 
     friend std::ostream & operator<<(std::ostream & os, const LogCholeskyParametersTpl & lcp)
