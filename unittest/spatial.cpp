@@ -769,18 +769,21 @@ BOOST_AUTO_TEST_CASE(test_Inertia)
     // Check if determinant is non-zero
     BOOST_CHECK(std::abs(jacobian.determinant()) > 1e-10);
 
-    // Check if log-cholesky parametrization to pseudo-inertia gives same result as their calculations
-    double alpha = eta[0], d1 = eta[1], d2 = eta[2], d3 = eta[3];
-    double s12 = eta[4], s23 = eta[5], s13 = eta[6];
-    double t1 = eta[7], t2 = eta[8], t3 = eta[9];
+    // // Check if log-cholesky parametrization to pseudo-inertia gives same result as their calculations
+    // double alpha = log_cholesky.alpha, d1 = eta[1], d2 = eta[2], d3 = eta[3];
+    // double s12 = eta[4], s23 = eta[5], s13 = eta[6];
+    // double t1 = eta[7], t2 = eta[8], t3 = eta[9];
 
-    double exp_alpha = std::exp(alpha);
-    double exp_d1 = std::exp(d1);
-    double exp_d2 = std::exp(d2);
-    double exp_d3 = std::exp(d3);
+    double exp_alpha = std::exp(log_cholesky.alpha);
+    double exp_d1 = std::exp(log_cholesky.d1);
+    double exp_d2 = std::exp(log_cholesky.d2);
+    double exp_d3 = std::exp(log_cholesky.d3);
 
     Eigen::Matrix4d U;
-    U << exp_d1, s12, s13, t1, 0, exp_d2, s23, t2, 0, 0, exp_d3, t3, 0, 0, 0, 1;
+    U << exp_d1, log_cholesky.s12, log_cholesky.s13, log_cholesky.t1, 
+         0, exp_d2, log_cholesky.s23, log_cholesky.t2, 
+         0, 0, exp_d3, log_cholesky.t3, 
+         0, 0, 0, 1;
     U *= exp_alpha;
 
     Eigen::Matrix4d pseudo_chol = U * U.transpose();
