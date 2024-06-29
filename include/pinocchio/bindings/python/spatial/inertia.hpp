@@ -39,11 +39,8 @@ namespace pinocchio
       typedef typename Inertia::Matrix3 Matrix3;
       typedef typename Inertia::Vector6 Vector6;
       typedef typename Inertia::Matrix6 Matrix6;
-      typedef typename Inertia::Matrix4 Matrix4;
-      typedef typename Inertia::Matrix10 Matrix10;
-      typedef typename Inertia::Vector10 Vector10;
+
       typedef Eigen::Matrix<Scalar, Eigen::Dynamic, 1, Options> VectorXs;
-      typedef Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic, Options> MatrixXs;
       typedef MotionTpl<Scalar, Options> Motion;
       typedef ForceTpl<Scalar, Options> Force;
 
@@ -60,6 +57,7 @@ namespace pinocchio
               &InertiaPythonVisitor::makeFromMCI, bp::default_call_policies(),
               bp::args("mass", "lever", "inertia")),
             "Initialize from mass, lever and 3d inertia.")
+
           .def(bp::init<>(bp::arg("self"), "Default constructor."))
           .def(bp::init<const Inertia &>((bp::arg("self"), bp::arg("clone")), "Copy constructor"))
 
@@ -126,18 +124,6 @@ namespace pinocchio
             (Matrix6(Inertia::*)(const MotionDense<Motion> &) const)
               & Inertia::template variation<Motion>,
             bp::args("self", "v"), "Returns the time derivative of the inertia.")
-          .def(
-            "LogcholToDynamicParameters", &InertiaPythonVisitor::LogcholToDynamicParameters_proxy,
-            bp::args("log_cholesky"),
-            "Converts logarithmic Cholesky parameters directly to theta parameters.")
-          .staticmethod("LogcholToDynamicParameters")
-          .def(
-            "calculateLogCholeskyJacobian",
-            &InertiaPythonVisitor::calculateLogCholeskyJacobian_proxy, bp::args("log_cholesky"),
-            "Calculates the Jacobian of the dynamic parameters with respect to the log-Cholesky "
-            "parameters.")
-          .staticmethod("calculateLogCholeskyJacobian")
-
 
 #ifndef PINOCCHIO_PYTHON_SKIP_COMPARISON_OPERATIONS
           .def(bp::self == bp::self)
@@ -179,6 +165,7 @@ namespace pinocchio
             "I_{xy}, I_{yy}, I_{xz}, I_{yz}, I_{zz}]^T "
             "where I = I_C + mS^T(c)S(c) and I_C has its origin at the barycenter.")
           .staticmethod("FromDynamicParameters")
+
           .def(
             "FromSphere", &Inertia::FromSphere, bp::args("mass", "radius"),
             "Returns the Inertia of a sphere defined by a given mass and radius.")
