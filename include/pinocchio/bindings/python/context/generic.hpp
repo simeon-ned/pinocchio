@@ -54,8 +54,6 @@ namespace pinocchio
       typedef MotionTpl<Scalar, Options> Motion;
       typedef ForceTpl<Scalar, Options> Force;
       typedef InertiaTpl<Scalar, Options> Inertia;
-      // typedef LogCholeskyParametersTpl<Scalar, Options> LogCholeskyParameters;
-      // typedef PseudoInertiaTpl<Scalar, Options> PseudoInertia;
       typedef Symmetric3Tpl<Scalar, Options> Symmetric3;
       // Multibody
       typedef FrameTpl<Scalar, Options> Frame;
