@@ -97,8 +97,7 @@ class TestInertiaBindings(TestCase):
         self.assertApprox(v[0], I.mass)
         self.assertApprox(v[1:4], I.mass * I.lever)
 
-        I_o = I.inertia + I.mass * \
-            pin.skew(I.lever).transpose().dot(pin.skew(I.lever))
+        I_o = I.inertia + I.mass * pin.skew(I.lever).transpose().dot(pin.skew(I.lever))
         I_ov = np.array(
             [
                 [float(v[4]), float(v[5]), float(v[7])],
