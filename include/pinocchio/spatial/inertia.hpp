@@ -1110,16 +1110,16 @@ namespace pinocchio
 
     Vector10 log_cholesky; ///< 10-dimensional vector of log Cholesky parameters
 
-    Scalar alpha; ///< Log Cholesky parameter alpha
-    Scalar d1;    ///< Log Cholesky parameter d1
-    Scalar d2;    ///< Log Cholesky parameter d2
-    Scalar d3;    ///< Log Cholesky parameter d3
-    Scalar s12;   ///< Log Cholesky parameter s12
-    Scalar s23;   ///< Log Cholesky parameter s23
-    Scalar s13;   ///< Log Cholesky parameter s13
-    Scalar t1;    ///< Log Cholesky parameter t1
-    Scalar t2;    ///< Log Cholesky parameter t2
-    Scalar t3;    ///< Log Cholesky parameter t3
+    Scalar alpha;
+    Scalar d1;   
+    Scalar d2;   
+    Scalar d3;   
+    Scalar s12;  
+    Scalar s23;  
+    Scalar s13;  
+    Scalar t1;   
+    Scalar t2;   
+    Scalar t3;   
 
     LogCholeskyParametersTpl(const Vector10 & log_cholesky)
     : log_cholesky(log_cholesky)
